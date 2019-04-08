@@ -10,7 +10,7 @@
     
 }
 body{
-  background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1743827/mountains.jpg);
+  background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),; 
   background-size: cover;
   background-position: center;
   font-weight: 300;
@@ -21,67 +21,51 @@ body{
  }
 
 .game-wrapper{
-  width: 1000px;
+  width: 1200px;
   position: absolute;
   padding: 50px;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   background-color: white;
+  height: 95vh;
   
 }
 .heading-center{
   text-align: center;
   margin-bottom: 25px;
-  
+
+}
+
+i {
+font-size: 100px;
+}
+
+
+@keyframes slidein {
+  0% {
+    margin-left: 100%;
+    width: 300%; 
+  }
+80%{
+  transform: translateX(-10rem);
+}
+  100% {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 
 
 
-/* Grid set up */
-/*  SECTIONS  */
-.section {
-	clear: both;
-	padding: 0px;
-	margin: 0px;
-}
 
-/*  COLUMN SETUP  */
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
-.col:first-child { margin-left: 0; }
 
-/*  GROUPING  */
-.group:before,
-.group:after { content:""; display:table; }
-.group:after { clear:both;}
-.group { zoom:1; /* For IE 6/7 */ }
 
-/*  GRID OF FIVE  */
-.span_5_of_5 {
-	width: 100%;
-}
-.span_4_of_5 {
-	width: 79.68%;
-}
-.span_3_of_5 {
-	width: 59.36%;
-}
-.span_2_of_5 {
-	width: 39.04%;
-}
-.span_1_of_5 {
-	width: 18.72%;
-}
 
-/*  GO FULL WIDTH BELOW 480 PIXELS */
-@media only screen and (max-width: 480px) {
-	.col {  margin: 1% 0 1% 0%; }
-	.span_1_of_5, .span_2_of_5, .span_3_of_5, .span_4_of_5, .span_5_of_5 { width: 100%; }
-}
+
+
+
+

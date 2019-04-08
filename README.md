@@ -14,6 +14,7 @@ Break down of where to start
 
 -display 12 cards
 -duplicate the cards to have a 2 sets
+
 -randomize the display of cards
 -only allow 2 cards to be selected at a time
 -determine if the two cards are a match and hide them
