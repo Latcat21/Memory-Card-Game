@@ -21,7 +21,7 @@ body{
  }
 
 .game-wrapper{
-  width: 1200px;
+  width: 1000px;
   position: absolute;
   padding: 50px;
   top: 50%;
@@ -38,10 +38,56 @@ body{
   margin-bottom: 25px;
 
 }
+.memory-game{
+ margin-left: 50px;
+}
+
+.cards{
+  width: 175px;
+  height: 125px;
+  border: 12px solid white;
+  display: inline-block;
+  background-color: white;
+  margin: 5px;
+  
+ }
+
+ .cards:hover{
+   cursor: pointer;
+   
+ }
+ .back{
+   position: absolute;
+   width: inherit;
+   height: inherit;
+   transform: rotateY(180deg);
+   transition: transform 0.5 linear 0s;
+   backface-visibility: hidden;
+  
+ }
+ .front{
+   position: absolute;
+   width: inherit;
+   height: inherit;
+   background-color: blue;
+   transform: rotateY(0deg);
+   transition: transform 0.5 linear 0s;
+   backface-visibility: hidden;
+
+   
+
+ }
+ .front:hover{
+  box-shadow: 0px 5px 5px 0px #000;
+  width: 178px;
+  height: 130px;
+
+ }
 
 i {
 font-size: 100px;
 }
+
 
 
 @keyframes slidein {

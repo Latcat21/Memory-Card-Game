@@ -1,32 +1,14 @@
 
-class Card {
-  constructor(icons){
-    
-    
-  }
-radomize(){
- let rand = this.icons[Math.floor(Math.random() * this.icons.length)];
- console.log(rand)
-}
-  
-}
- 
- 
-const Game = {
-  guessCount: 2,
+
+class MemoryGame{
+constructor(){
+this.storage = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+this.iconRecord = [];
+this.rand;
+this.flipCount = 0;
 }
 
-
-
-
-$('button').on('click', function(){
-
-
-
-})
-
-
-
+}
 
 
 
