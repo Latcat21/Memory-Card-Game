@@ -30,65 +30,50 @@ body{
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   background-color: white;
-  height: 95vh;
+  height: 100vh;
   
 }
 .heading-center{
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 
 }
-.memory-game{
- margin-left: 50px;
-}
 
-.cards{
-  width: 175px;
-  height: 125px;
-  border: 12px solid white;
-  display: inline-block;
-  background-color: white;
-  margin: 5px;
+.card {
+  float: left;
+  margin: 8px;
+  height: 190px;
+  width: 200px;
+  background: blue;
+  text-align: center;
+  border-radius: 2px;
+  animation: slidein 1s;
   
- }
-
- .cards:hover{
-   cursor: pointer;
-   
- }
- .back{
-   position: absolute;
-   width: inherit;
-   height: inherit;
-   transform: rotateY(180deg);
-   transition: transform 0.5 linear 0s;
-   backface-visibility: hidden;
-  
- }
- .front{
-   position: absolute;
-   width: inherit;
-   height: inherit;
-   background-color: blue;
-   transform: rotateY(0deg);
-   transition: transform 0.5 linear 0s;
-   backface-visibility: hidden;
-
-   
-
- }
- .front:hover{
-  box-shadow: 0px 5px 5px 0px #000;
-  width: 178px;
-  height: 130px;
-
- }
-
-i {
-font-size: 100px;
 }
 
+.card:hover {
+  
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0px 10px 10px 0px #000;
+}
 
+.card p {
+  margin-top: 50px;
+  font-size: 75px;
+  color: white;
+  font-weight: 900;
+}
+.first-row{
+animation:  slidein 2s
+}
+
+.second-row{
+animation: slidein 2s
+}
+.third-row{
+animation: slidein 2s
+}
 
 @keyframes slidein {
   0% {

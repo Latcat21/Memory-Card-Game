@@ -1,45 +1,96 @@
+/*
 
 
-class MemoryGame{
-constructor(){
-this.storage = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-this.imgRec = [];
-this.rand;
-this.cardtextRec = [];
-this.cardRec = [];
-this.cardNum
-this.front
-this.back
-this.memory = $('.memory-game')
+Try matching two card that are the same. If they don't match you move on to flip other cards and remember their positions. The game ends when the whole board is uncovered.
 
-}
+-user will see 18 cards laid face down
+-user will then click a card to reveal it's property
+-user will then click a second card to see if it matches
+-
+-when a match happens both cards will disapear
+-once the user as match all cards, he has won
 
-}
+Break down of where to start
 
-const game = {
-  flipCount: 0,
-  cardCheck: 0,
-  correct:0,
-  status:0,
-  gameOver:false,
+-display 12 cards
+-duplicate the cards to have a 2 sets
+-randomize the display of cards
+-only allow 2 cards to be selected at a time
+-determine if the two cards are a match and hide them
+-reset guess count after 2
+-add delay to selections
+-show back of card and flip on select
+-finsh game
+
+-above and beyond
+-css animation
+-scss
+cards: ["fas fa-bicycle","fas fa-bicycle", "fas fa-cat","fas fa-cat","fas fa-spider", "far fa-building", "far fa-building", "fas fa-gem", "fas fa-gem", "fas fa-user-secret", "fas fa-user-secret", "fas fa-ship","fas fa-ship","fas fa-wine-glass","fas fa-wine-glass" ],
+cards: ['!', '!', '@', '@', '#', '#', '$', '$', '%', '%', '&', '&', 'X','X', '=', '='],
 
 
+*/
 
-flipCardId(){
-  memory.on('click', function(e){
-    let el = e.target.parent()
-    let numId = el.id;
-    if(Number.isInteger(parseInt(numId.replace("back", ""),10))){
-      cardClick(el.parentElement.id);
-    }
-    else{
-      cardClick(el.id);
-    }
-
+let game = {
+  cards: [ '@', '@', '#', '#', '$', '$', '%', '%', '&', '&', 'X','X'],
+  start() {
+    game.shuffleCards();
     
-     
+  },
+
+shuffleCards() {
+    var random = 0;
+    var temp = 0;
+    for (i = 1; i < game.cards.length; i++) {
+      random = Math.round(Math.random() * i);
+      temp = game.cards[i];
+      game.cards[i] = game.cards[random];
+      game.cards[random] = temp;
+    }
+    game.assignData();
+   
+  },
+  assignData() {
+    $('.card').each(function(index) {
+      $(this).attr('data-value', game.cards[index]);
+    });
+    
+  },
+  
+  Match() {
+      if ($('.clicked').length === 2) {
+        
+      if ($('.clicked').first().data('value') == $('.clicked').last().data('value')){
+         $('.clicked').each(function() {
+          $(this).css({"background-color": "green",}).animate({ opacity: 0 }).removeClass('unmatched');
+        });
+        $('.clicked').each(function() {
+          $(this).removeClass('clicked');
+        });
+        game.checkWin();
+      } else {
+        setTimeout(function() {
+          $('.clicked').each(function() {
+            $(this).html('').removeClass('clicked');
+           
+          });
+        }, 1000);
+      }
+    }
+  },
+  checkWin() {
+    if ($('.unmatched').length === 0) {
+      $('.game-wrapper').css({
+        'background-image': 'url(./images/leo.jpg)'
+      });
+    }
+  }
+};
+game.start();
+
+// Event Listeners
+   
+$('.card').on('click', function() {
+    $(this).html('<p>' + $(this).data('value') + '</p>').addClass('clicked');
+    game.Match();
   });
-}
-
-
-}
