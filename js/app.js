@@ -32,17 +32,14 @@ let game = {
   },
 
 shuffleCards() {
-  
-  
-    let random = 0;
-    let temp = 0;
+    var random = 0;
+    var temp = 0;
     for (i = 1; i < game.cards.length; i++) {
       random = Math.round(Math.random() * i);
-      tempNum = game.cards[i];
+      temp = game.cards[i];
       game.cards[i] = game.cards[random];
       game.cards[random] = temp;
     }
-    
     game.assignData();
    
   },
