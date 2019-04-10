@@ -22,13 +22,6 @@ Break down of where to start
 -show back of card and flip on select
 -finsh game
 
--above and beyond
--css animation
--scss
-cards: ["fas fa-bicycle","fas fa-bicycle", "fas fa-cat","fas fa-cat","fas fa-spider", "far fa-building", "far fa-building", "fas fa-gem", "fas fa-gem", "fas fa-user-secret", "fas fa-user-secret", "fas fa-ship","fas fa-ship","fas fa-wine-glass","fas fa-wine-glass" ],
-cards: ['!', '!', '@', '@', '#', '#', '$', '$', '%', '%', '&', '&', 'X','X', '=', '='],
-
-
 */
 
 let game = {
@@ -59,18 +52,20 @@ shuffleCards() {
   
   Match() {
       if ($('.clicked').length === 2) {
-        
+
       if ($('.clicked').first().data('value') == $('.clicked').last().data('value')){
          $('.clicked').each(function() {
           $(this).css({"background-color": "green",}).animate({ opacity: 0 }).removeClass('unmatched');
-        });
-        $('.clicked').each(function() {
+          });
+          $('.clicked').each(function() {
           $(this).removeClass('clicked');
         });
+
         game.checkWin();
+        
       } else {
         setTimeout(function() {
-          $('.clicked').each(function() {
+            $('.clicked').each(function() {
             $(this).html('').removeClass('clicked');
            
           });
@@ -80,7 +75,7 @@ shuffleCards() {
   },
   checkWin() {
     if ($('.unmatched').length === 0) {
-      $('.game-wrapper').css({
+         $('.game-wrapper').css({
         'background-image': 'url(./images/leo.jpg)'
       });
     }
