@@ -32,8 +32,8 @@ let game = {
   },
 
 shuffleCards() {
-    var random = 0;
-    var temp = 0;
+    let random = 0;
+    let temp = 0;
     for (i = 1; i < game.cards.length; i++) {
       random = Math.round(Math.random() * i);
       temp = game.cards[i];
