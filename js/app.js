@@ -1,36 +1,13 @@
-/*
-
-
-Try matching two card that are the same. If they don't match you move on to flip other cards and remember their positions. The game ends when the whole board is uncovered.
-
--user will see 18 cards laid face down
--user will then click a card to reveal it's property
--user will then click a second card to see if it matches
--
--when a match happens both cards will disapear
--once the user as match all cards, he has won
-
-Break down of where to start
-
--display 12 cards
--duplicate the cards to have a 2 sets
--randomize the display of cards
--only allow 2 cards to be selected at a time
--determine if the two cards are a match and hide them
--reset guess count after 2
--add delay to selections
--show back of card and flip on select
--finsh game
-
-*/
 
 let game = {
   cards: [ '@', '@', '#', '#', '$', '$', '%', '%', '&', '&', 'X','X'],
+  
+  // intializing the game 
   start() {
     game.shuffleCards();
     
   },
-
+// shuffle fucntion for randomizing the array;
 shuffleCards() {
     let random = 0;
     let temp = 0;
@@ -43,16 +20,19 @@ shuffleCards() {
     game.assignData();
    
   },
+
+  // assigning data to the html so we can match it later
   assignData() {
     $('.card').each(function(index) {
       $(this).attr('data-value', game.cards[index]);
     });
     
   },
-  
+  // match function to match the values of the flipped cards
   Match() {
+    // if there are two cards with the classes clicked
       if ($('.clicked').length === 2) {
-
+// Than seeing if they match
       if ($('.clicked').first().data('value') == $('.clicked').last().data('value')){
          $('.clicked').each(function() {
           $(this).css({"background-color": "green",}).animate({ opacity: 0 }).removeClass('unmatched');
@@ -62,7 +42,7 @@ shuffleCards() {
         });
 
         game.checkWin();
-        
+        // using a time out function to make the to flip the cards back 
       } else {
         setTimeout(function() {
             $('.clicked').each(function() {
@@ -73,6 +53,8 @@ shuffleCards() {
       }
     }
   },
+
+  // once there are no more cards with the class match the game is over
   checkWin() {
     if ($('.unmatched').length === 0) {
          $('.game-wrapper').css({
@@ -81,6 +63,7 @@ shuffleCards() {
     }
   }
 };
+// initlaizing the game
 game.start();
 
 // Event Listeners
