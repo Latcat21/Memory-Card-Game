@@ -89,7 +89,17 @@ animation: slidein 2s
   }
 }
 
+@media only screen and (max-width:600px){
+  
+  .game-wrapper {
+    width: 450px;
 
+  }
+  .card{
+    width: 100px;
+    height: 100px;
+  }
+}
 
 
 
